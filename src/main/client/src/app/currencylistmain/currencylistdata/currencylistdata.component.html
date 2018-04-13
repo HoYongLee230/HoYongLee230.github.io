@@ -1,0 +1,18 @@
+<div>
+	{{currencycount}} results
+	<table class="table table-striped">
+		<tr>
+			<th>From</th>
+			<th>To</th>
+			<th>Bid</th>
+			<th>Ask</th>
+		</tr>
+		<tr *ngFor="let currencyrate of currencyrates; let i = index"
+			(click)="currencyrateselect(i)">
+			<td>{{currencyrate.fromCurrency}}</td>
+			<td>{{currencyrate.toCurrency}}</td>
+			<td>{{currencyrate.bid}}</td>
+			<td>{{currencyrate.ask}}</td>
+		</tr>
+	</table>
+</div>
