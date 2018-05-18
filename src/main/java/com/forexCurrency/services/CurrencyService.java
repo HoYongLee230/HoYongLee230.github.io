@@ -47,7 +47,8 @@ public class CurrencyService {
 				JSONObject currencyDataJSONObject = currencyDataJSONArray.getJSONObject(i);
 				currencyRateList.add(new CurrencyRate(currencyDataJSONObject.getString("symbol").substring(0, 3),
 						currencyDataJSONObject.getString("symbol").substring(3),
-						currencyDataJSONObject.getDouble("bid"), currencyDataJSONObject.getDouble("ask")));
+						currencyDataJSONObject.getDouble("price"), currencyDataJSONObject.getDouble("bid"),
+						currencyDataJSONObject.getDouble("ask")));
 			}
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block

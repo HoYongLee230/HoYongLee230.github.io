@@ -1,0 +1,4 @@
+<div>
+	<select (change)="changeSelectedCurrency($event.target.value)"><option
+			*ngFor="let currency of currencyArr" [value]="currency">{{currency}}</option></select>
+</div>

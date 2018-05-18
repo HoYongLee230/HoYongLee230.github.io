@@ -3,11 +3,12 @@ package com.forexCurrency.models;
 public class CurrencyRate {
 
 	private String fromCurrency, toCurrency;
-	private double bid, ask;
+	private double price, bid, ask;
 
-	public CurrencyRate(String fromCurrency, String toCurrency, double bid, double ask) {
+	public CurrencyRate(String fromCurrency, String toCurrency, double price, double bid, double ask) {
 		this.fromCurrency = fromCurrency;
 		this.toCurrency = toCurrency;
+		this.price = price;
 		this.bid = bid;
 		this.ask = ask;
 	}
@@ -26,6 +27,14 @@ public class CurrencyRate {
 
 	public void setToCurrency(String toCurrency) {
 		this.toCurrency = toCurrency;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public double getBid() {

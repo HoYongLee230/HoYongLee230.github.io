@@ -7,7 +7,7 @@ export class CurrencySelectService {
 
     constructor() { }
 
-    private selectedCurrency = new BehaviorSubject<CurrencyRate>( { fromCurrency: "", toCurrency: "", bid: 0, ask: 0 } );
+    private selectedCurrency = new BehaviorSubject<CurrencyRate>( { fromCurrency: "", toCurrency: "", price: 0, bid: 0, ask: 0 } );
     currentSelectedCurrency = this.selectedCurrency.asObservable();
 
 

@@ -1,1 +1,5 @@
-<div>{{selectedCurrencyRate.fromCurrency}}</div>
+<div *ngIf="showConversion">
+	<input size="10" (keyup)="onFromCurrencyChange($event.target.value)">
+	{{selectedCurrencyRate.fromCurrency}} converts to {{toCurrencyValue}}
+	{{selectedCurrencyRate.toCurrency}}
+</div>

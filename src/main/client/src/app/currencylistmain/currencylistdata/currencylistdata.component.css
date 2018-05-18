@@ -1,0 +1,8 @@
+.table-striped tbody tr:hover td, .table-striped tbody tr:hover th {
+	background-color: #AFEEEE;
+	cursor: pointer;
+}
+
+.table-striped tbody tr.selected td {
+	background-color: red;
+}

@@ -7,14 +7,19 @@ import { CurrencylistmainComponent } from './currencylistmain/currencylistmain.c
 import { CurrencylistdataComponent } from './currencylistmain/currencylistdata/currencylistdata.component';
 import { CurrencyListService } from './currencylistmain/currencylist.service';
 import { CurrencySelectService } from './currencylistmain/currencyselect.service';
+import { CurrencyFilterService } from './currencylistmain/currencyfilter.service';
 import { CurrencylistselectComponent } from './currencylistmain/currencylistselect/currencylistselect.component';
+import { CurrencylistfilterComponent } from './currencylistmain/currencylistfilter/currencylistfilter.component';
+import { CurrencylistrefreshComponent } from './currencylistmain/currencylistrefresh/currencylistrefresh.component';
 
 @NgModule( {
     declarations: [
         AppComponent,
         CurrencylistmainComponent,
         CurrencylistdataComponent,
-        CurrencylistselectComponent
+        CurrencylistselectComponent,
+        CurrencylistfilterComponent,
+        CurrencylistrefreshComponent
     ],
     imports: [
         BrowserModule,
@@ -22,7 +27,8 @@ import { CurrencylistselectComponent } from './currencylistmain/currencylistsele
     ],
     providers: [
         CurrencyListService,
-        CurrencySelectService
+        CurrencySelectService,
+        CurrencyFilterService
     ],
     bootstrap: [AppComponent]
 } )

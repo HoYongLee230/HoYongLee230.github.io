@@ -1,12 +1,18 @@
 <div class="row">
-	<div class="col-md-2">&nbsp;</div>
+	<div class="col-md-1">&nbsp;</div>
+	<!-- shift entire primary component to the left slightly using &nbsp-->
 	<div class="col-md-4">
-
 		<div>
 			<h3>Currency Data</h3>
+			<br /> The bid rate is what buyers are willing to pay for it.<br />
+			The ask rate is what sellers are willing to take for it. <br /> The
+			price rate is the average of bid and ask and what is likely to be the
+			rate used.
 		</div>
-		<app-currencylistselect></app-currencylistselect>
+		<app-currencylistfilter></app-currencylistfilter>
 		<app-currencylistdata></app-currencylistdata>
 	</div>
-	<div class="col-md-2">&nbsp;</div>
+	<div class="col-md-4">
+		<app-currencylistselect></app-currencylistselect>
+	</div>
 </div>
