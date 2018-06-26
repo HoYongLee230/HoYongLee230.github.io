@@ -12,6 +12,8 @@ import { CurrencyFilterService } from '../currencyfilter.service';
 
 export class CurrencylistdataComponent implements OnInit {
     currencyrates: CurrencyRate[] = [];
+    currencyratefrom: CurrencyRate[] = [];
+    currencyrateto: CurrencyRate[] = [];
     currencyratesoriginal: CurrencyRate[] = [];
     currencyrate: CurrencyRate;
     currencySet: Set<string> = new Set<string>();
@@ -41,17 +43,13 @@ export class CurrencylistdataComponent implements OnInit {
             );
         this.currencyFilterService.selectedCurrencySubjectObservable.subscribe( selectedcurrencyfilter => {
             this.selectedcurrencyfilter = selectedcurrencyfilter;
-            this.currencyrates = this.selectedcurrencyfilter === "---" ? this.currencyratesoriginal : this.currencyratesoriginal.filter(
-                currencyrate => currencyrate.fromCurrency === this.selectedcurrencyfilter || currencyrate.toCurrency === this.selectedcurrencyfilter ).sort(( a, b ) => {
-                    //return a.fromCurrency === this.selectedcurrencyfilter ? a.toCurrency < b.toCurrency ? -2 : a.toCurrency > b.toCurrency ? 2 : 0 : a.toCurrency === this.selectedcurrencyfilter ? 1 : 0;
-                    //return a.fromCurrency === this.selectedcurrencyfilter ? -3 : a.toCurrency === this.selectedcurrencyfilter ? 3 : 0;
-                    //return a.fromCurrency === this.selectedcurrencyfilter ? a.toCurrency < b.toCurrency ?-3:a.toCurrency>b.toCurrency?3:5:6;
-                    //: a.toCurrency === this.selectedcurrencyfilter ? a.fromCurrency < b.fromCurrency?7:8 : 6;
-                    return a.fromCurrency === this.selectedcurrencyfilter ? -2 : a.toCurrency === this.selectedcurrencyfilter ? 5 : 4;
-                    //return a.fromCurrency === this.selectedcurrencyfilter && a.toCurrency < b.toCurrency?-1:a.fromCurrency === this.selectedcurrencyfilter && a.toCurrency > b.toCurrency?1:3;
-                    //return a.fromCurrency - b.fromCurrency || a.toCurrency - b.toCurrency;
-                    //return a.fromCurrency === this.selectedcurrencyfilter ? a.toCurrency < b.toCurrency ? -2 : a.toCurrency > b.toCurrency ? -1 : 1 : 0;
-                } );
+            this.currencyratefrom = this.currencyratesoriginal.filter( currencyrate => currencyrate.fromCurrency === this.selectedcurrencyfilter ).sort(( a, b ) => {
+                return a.toCurrency < b.toCurrency ? -1 : a.toCurrency > b.toCurrency ? 1 : 0;
+            } );
+            this.currencyrateto = this.currencyratesoriginal.filter( currencyrate => currencyrate.toCurrency === this.selectedcurrencyfilter ).sort(( a, b ) => {
+                return a.fromCurrency < b.fromCurrency ? -1 : a.fromCurrency > b.fromCurrency ? 1 : 0;
+            } );
+            this.currencyrates = this.selectedcurrencyfilter === "---" ? this.currencyratesoriginal : [...this.currencyratefrom, ...this.currencyrateto];
             this.currencycount = this.currencyrates.length;
         } );
     }

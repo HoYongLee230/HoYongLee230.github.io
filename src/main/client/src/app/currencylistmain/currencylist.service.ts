@@ -1,6 +1,5 @@
 import { Http } from '@angular/http';
 import "rxjs/Rx";
-import { CurrencyRate } from './currencyrate.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
